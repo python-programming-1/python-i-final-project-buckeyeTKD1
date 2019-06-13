@@ -1,12 +1,12 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-kbb_price=6000
-city='losangeles'
-make='nissan'
-model='altima'
-min_price='2000'
-max_price='20000'
-min_year='1990'
+kbb_price=6000             #it's impossible to scrap kbb, so you need to check it manually
+city='losangeles'          #enter the name of your city, no space
+make='ford'              #enter the make of the vehicle
+model='F150'               #enter the model of the vehicle
+min_price='2000'                  #|          |
+max_price='50000'                 #|          |
+min_year='1990'              #every thing is same here, manually change it before running it
 max_year='2019'
 my_url='https://'+city+'.craigslist.org/search/sss?auto_make_model='+make+'%20'+model+'&max_auto_year='+max_year+'&max_price='+max_price+'&min_auto_year='+min_year+'&min_price='+min_price+'&query='+make+'%20'+model+'&sort=rel'
     
@@ -31,6 +31,7 @@ for record in containers:
     print('name:'+name+'      ''price:'+ pricen+':)')
 
 print('continute for the rest of pages')
+input("y/n")
 l=120
 total=page_soup.findAll('span', {'class':'totalcount'})
 total_number_text=total[0].text
